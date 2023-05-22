@@ -1,6 +1,6 @@
 import Main from './pages/Main';
 import Navbar from './pages/Navbar';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Menu from './pages/Menu';
 import Basket from './pages/Basket';
 import Contacts from './pages/Contacts';
