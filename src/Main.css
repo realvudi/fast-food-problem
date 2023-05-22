@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.main {
+    height: 100vh;
+    color:white;
+    background: linear-gradient(217deg, #DA291C, rgba(49, 7, 7, 0) 60.71%),
+    linear-gradient(127deg, #ffb52c, rgba(0,255,0,0) 80.71%),
+    linear-gradient(336deg, #fbfbfb, rgb(0, 0, 0) 100.71%);
+}
+
+.start-button {
+    background: 
+    linear-gradient(127deg, #ffb52c, rgba(0,255,0,0) 80.71%),
+    linear-gradient(217deg, #DA291C, rgba(49, 7, 7, 0) 60.71%),
+    linear-gradient(336deg, #e90c40, rgb(176, 102, 12) 100.71%);
+}
