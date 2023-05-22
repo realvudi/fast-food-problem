@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/fast-food-problem/static/css/main.e7f52f8b.css",
+    "main.js": "/fast-food-problem/static/js/main.3886423b.js",
+    "static/js/787.7a9e19a3.chunk.js": "/fast-food-problem/static/js/787.7a9e19a3.chunk.js",
+    "static/media/about.png": "/fast-food-problem/static/media/about.609e441df0cf13f2e596.png",
+    "static/media/pizza.png": "/fast-food-problem/static/media/pizza.3e5fe982a2de420323f4.png",
+    "static/media/coke.png": "/fast-food-problem/static/media/coke.ddf858902b089021edf2.png",
+    "static/media/food1.png": "/fast-food-problem/static/media/food1.0ee48875047cce0c87f6.png",
+    "static/media/food3.png": "/fast-food-problem/static/media/food3.475032e54ce8d4ca9576.png",
+    "static/media/food2.png": "/fast-food-problem/static/media/food2.adcbe7015f390cdfe48c.png",
+    "index.html": "/fast-food-problem/index.html",
+    "main.e7f52f8b.css.map": "/fast-food-problem/static/css/main.e7f52f8b.css.map",
+    "main.3886423b.js.map": "/fast-food-problem/static/js/main.3886423b.js.map",
+    "787.7a9e19a3.chunk.js.map": "/fast-food-problem/static/js/787.7a9e19a3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7f52f8b.css",
+    "static/js/main.3886423b.js"
+  ]
+}
