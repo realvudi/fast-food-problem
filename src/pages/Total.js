@@ -83,12 +83,14 @@ function Total(props) {
     const [information, setInformation] = useState({
         sex: "",
         age: 0,
-        typeOfLife: 0
+        typeOfLife: 0,
+        weight: 0
     });
 
     const [form, setForm] = useState(false);
 
     const [totalCal, setTotalCal] = useState(0);
+    const [exception, setException] = useState(false);
     function handleSex(name) {
 
         setInformation(prevState => ({
@@ -109,6 +111,20 @@ function Total(props) {
             ...prevState,
             typeOfLife: type
         }))
+    }
+
+    function handleWeight(number) {
+        
+        if (isNaN(number.target.value) || number.target.value === "") {
+            setException(true);
+            setForm(false);
+            return;
+        }
+        setInformation(prevState => ({
+            ...prevState,
+            weight: parseInt(number.target.value)
+        }))
+        setException(false);
     }
 
     function handleTotalCal(value) {
@@ -144,7 +160,9 @@ function Total(props) {
         setForm(true)
     }
 
+    useEffect(() => {
 
+    }, [form])
     
     return(
         <div className="main text-center font-light items-center justify-center pt-20 overflow-y-scroll">
@@ -274,9 +292,17 @@ function Total(props) {
                             </label>
                         </div>
                     </div>
+                    
+                    <h1 className="text-2xl text-left ml-10 pt-5">Ваш Вес</h1>
+
+                    <div className="w-[80%] m-auto">
+                        <input placeholder="Укажите вес тут..." className="p-2 px-4 text-black rounded-md" onChange={handleWeight}></input>
+                        {exception === false ? "" : <div className="text-red-500 font-bold text-2xl">Пожалуйста, введите число, например, 49</div>}
+                        
+                    </div>
                 </div>
                 
-                {information.sex === "" || information.age === 0 || information.typeOfLife === 0 ? "" :
+                {information.sex === "" || information.age === 0 || information.typeOfLife === 0 || information.weight === 0 ? "" :
                 <button className="btn btn-default bg-blue-500 p-2 rounded-xl mt-5" type="submit" onClick={submitForm}>
                     Получить результат
                 </button>}
@@ -294,9 +320,12 @@ function Total(props) {
                 <hr className="border-t-[0.8px] border-gray-500 my-5 w-[75%] mx-auto" />
                 <div className="mb-5">
                     
-                    <div className="flex w-[75%] m-auto text-xl">
-                        <h1 className="">Ваше дневное употребление должно быть: </h1>
-                        <h1 className="text-black ml-2">{totalCal} калорий</h1>
+                    <h1 className="text-2xl text-left ml-5 pb-5">Ваше дневное употребление должно быть: </h1>
+                    <div className="grid grid-cols-4 font-bold w-[90%] m-auto border-2 rounded-md p-2 border-gray-100 ">
+                        <h1>Энергия: {totalCal} кКал</h1>
+                        <h1>Белки: {parseInt(information.weight * 1.4)} г</h1>
+                        <h1>Жиры: {parseInt(information.weight * 0.8)} г</h1>
+                        <h1>Углеводы: {parseInt(information.weight * 3.2)} г</h1>
                     </div>
 
                 </div>     
@@ -304,14 +333,14 @@ function Total(props) {
                 <div>
                     <h1 className="text-3xl font-bold mb-2 mt-10">Результат по Фастфуд Меню</h1>
                     <hr className="border-t-[0.8px] border-gray-500 my-5 w-[75%] mx-auto" />
-                    <div className="grid grid-cols-4 font-bold">
-                        <h1>Энергия: {energyFood}</h1>
-                        <h1>Белки: {proteins}</h1>
-                        <h1>Жиры: {fats}</h1>
-                        <h1>Углеводы: {carbs}</h1>
+                    <div className="grid grid-cols-4 font-bold w-[90%] m-auto border-2 rounded-md p-2 border-gray-100 my-10">
+                        <h1>Энергия: {energyFood} кКал</h1>
+                        <h1>Белки: {proteins} г</h1>
+                        <h1>Жиры: {fats} г</h1>
+                        <h1>Углеводы: {carbs} г</h1>
                     </div>
                     {totalCal === 0 ? "" : 
-                        <div className="mt-10 text-2xl text-black">
+                        <div className="mt-10 text-2xl text-black font-bold">
                             {
                                 /* 0% */
                                 energyFood === 0 ? <div>Вы не употребляете фастфуд. Так держать!</div> : ""
@@ -324,13 +353,28 @@ function Total(props) {
     
                             {
                                 /* 25% */
-                                (energyFood / totalCal > 0.1) && (energyFood / totalCal <= 0.5) ? <div>Вы употребляете умеренное количество фастфуда, но лучше убрать его из своего рациона</div> : ""
+                                (energyFood / totalCal > 0.1) && (energyFood / totalCal <= 0.5) ? <div className="">Вы употребляете умеренное количество фастфуда, но лучше убрать его из своего рациона</div> : ""
                             }
     
                             {
                                 /* 50% */
-                               energyFood / totalCal > 0.5 ? <div>Вы употребляете слишком много фастфуда.</div> : ""
-                            }
+                               energyFood / totalCal > 0.5 ? 
+                               <div>
+                                    <div className="text-red-500">
+                                        Вы употребляете слишком много фастфуда:
+                                    </div>
+                                    
+                                    <div className="font-normal">
+                                        Ваш дневной рацион на более чем 50% состоит из фастфуда.
+                                    </div>
+                                </div> : ""
+                                }
+                            <div className="border-2 border-black">
+                                { proteins - parseInt(information.weight * 1.4) > 0 ? <div>Меню превышает дневную норму белков</div> : ""}
+                                { fats - parseInt(information.weight * 0.8) > 0 ? <div>Меню превышает дневную норму жиров</div> : ""}
+                                { carbs - parseInt(information.weight * 3.2) > 0 ? <div>Меню превышает дневную норму углеводов</div> : ""}
+                            </div>
+                            
                         </div>
                     }
                     
@@ -338,6 +382,7 @@ function Total(props) {
                     
             </div>
             }
+
      </div>
     )
 }
