@@ -116,6 +116,7 @@ function Total(props) {
     }
 
     function submitForm() {
+        handleTotalCal(-totalCal);
         if (information.sex === "male") {
             handleTotalCal(400);
         }
@@ -140,7 +141,6 @@ function Total(props) {
             handleTotalCal(400);
         }
 
-        console.log(totalCal)
         setForm(true)
     }
 
@@ -289,20 +289,22 @@ function Total(props) {
 
                 { form === false ? "" :            
 
-            <div className="bg-white bg-opacity-30 w-[50%] m-auto p-5 rounded-2xl mt-10">
+            <div className="bg-white bg-opacity-30 w-[50%] m-auto p-5 rounded-2xl my-10">
                 <h1 className="text-3xl font-bold">Результат</h1>
+                <hr className="border-t-[0.8px] border-gray-500 my-5 w-[75%] mx-auto" />
                 <div className="mb-5">
                     
-                    <div className="flex w-[60%] m-auto text-xl">
-                        <h1 className="">Ваша дневное употребление должно быть: </h1>
+                    <div className="flex w-[75%] m-auto text-xl">
+                        <h1 className="">Ваше дневное употребление должно быть: </h1>
                         <h1 className="text-black ml-2">{totalCal} калорий</h1>
                     </div>
 
                 </div>     
 
                 <div>
-                    <h1 className="text-3xl font-bold mb-2">Результат по Фастфуд Меню</h1>
-                    <div className="grid grid-cols-4">
+                    <h1 className="text-3xl font-bold mb-2 mt-10">Результат по Фастфуд Меню</h1>
+                    <hr className="border-t-[0.8px] border-gray-500 my-5 w-[75%] mx-auto" />
+                    <div className="grid grid-cols-4 font-bold">
                         <h1>Энергия: {energyFood}</h1>
                         <h1>Белки: {proteins}</h1>
                         <h1>Жиры: {fats}</h1>
@@ -327,7 +329,7 @@ function Total(props) {
     
                             {
                                 /* 50% */
-                               energyFood / totalCal >= 0.5 ? <div>Вы употребляете слишком много фастфуда.</div> : ""
+                               energyFood / totalCal > 0.5 ? <div>Вы употребляете слишком много фастфуда.</div> : ""
                             }
                         </div>
                     }
@@ -336,17 +338,6 @@ function Total(props) {
                     
             </div>
             }
-            
-            
-
-        {/* <div className="">
-            <h1 className="text-6xl font-bold py-10">
-                Итог
-            </h1>
-            <h5 className="text-2xl py-2 text-black-600">
-            Если вы будете принимать такой рацион пищи каждый день и всю свою жизнь, это может привести к разным болезням например: ожирение, проблемы с сердцем, диабет 2 типа, пептичская язва, панкреатит, гастрит, а также отсутвие нужных для организма питательных веществ. Но еще страшнее то что в этой пище почти нет клетчатки, а значит, она застаивается в кишечнике, бродит и гниет там, приводит к вздутию живота, дискомфорту в животе, способствует запорам. Кроме того, нарушается всасывание витаминов и железа – это приводит к анемии и снижению иммунитета.
-            </h5>
-        </div> */}
      </div>
     )
 }
