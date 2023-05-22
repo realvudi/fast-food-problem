@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fast-food-problem/static/css/main.156e7eec.css",
-    "main.js": "/fast-food-problem/static/js/main.5e4696b0.js",
+    "main.js": "/fast-food-problem/static/js/main.1ea9a96c.js",
     "static/js/787.7a9e19a3.chunk.js": "/fast-food-problem/static/js/787.7a9e19a3.chunk.js",
     "static/media/about.png": "/fast-food-problem/static/media/about.609e441df0cf13f2e596.png",
     "static/media/pizza.png": "/fast-food-problem/static/media/pizza.3e5fe982a2de420323f4.png",
@@ -11,11 +11,11 @@
     "static/media/food2.png": "/fast-food-problem/static/media/food2.adcbe7015f390cdfe48c.png",
     "index.html": "/fast-food-problem/index.html",
     "main.156e7eec.css.map": "/fast-food-problem/static/css/main.156e7eec.css.map",
-    "main.5e4696b0.js.map": "/fast-food-problem/static/js/main.5e4696b0.js.map",
+    "main.1ea9a96c.js.map": "/fast-food-problem/static/js/main.1ea9a96c.js.map",
     "787.7a9e19a3.chunk.js.map": "/fast-food-problem/static/js/787.7a9e19a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.156e7eec.css",
-    "static/js/main.5e4696b0.js"
+    "static/js/main.1ea9a96c.js"
   ]
 }
