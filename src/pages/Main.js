@@ -24,19 +24,17 @@ function Main() {
                 </h1>
 
                 <h3 className="text-md italic">
-                    Проект Александра Голзари и Амила Поннучами
+                    Проект Александра Голзари 
                 </h3>
             </div>
 
             <div className="w-[96%] mx-auto mt-32 justify-items-center rounded-2xl items-center  bg-white bg-opacity-30">
                 <div className="grid grid-cols-2 gap-x-2">
                     <div className=" text-left p-5">
-                        <h5 className="text-4xl py-2 font-bold text-black">
-                        Мы - ученики 8 Д класса школы №1329.
-                        </h5>
+
 
                         <h5 className="text-2xl py-2 text-gray-600 ">
-                        Наша задача заключается в создании сайта, где можно наглядно посмотреть, какие вредные вещества содержатся в разных продуктах фаст-фуда 
+                        Моя задача заключается в создании сайта, где можно наглядно посмотреть, какие вредные вещества содержатся в разных продуктах фаст-фуда 
                         </h5>
 
                         <h5 className="text-2xl py-2 text-gray-600 ">
