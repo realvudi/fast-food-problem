@@ -19,6 +19,7 @@ function App() {
 })
 
 
+
   function handleAdd(name) {
     const value = menu[name] + 1;
     if (value > 5)
@@ -38,9 +39,10 @@ function App() {
         [name]: value
     }));
   };
-  
-  return (
 
+  const [show, setShow] = useState(true)
+  return (
+  
     <Router>
       <Navbar />
       <Routes>
